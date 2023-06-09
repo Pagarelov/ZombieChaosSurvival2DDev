@@ -1672,8 +1672,16 @@ MonoBehaviour:
   rb: {fileID: 1056530238}
   weapon: {fileID: 1182969226}
   healthBar: {fileID: 1136016840}
-  fireSound: {fileID: 8300000, guid: c00aeb0af53cb1f4c97dc38ccec34ac6, type: 3}
-  fireRate: 0.2
+  fireSounds:
+  - {fileID: 8300000, guid: cd82e51e3b8cf4946b77fe0771881877, type: 3}
+  - {fileID: 8300000, guid: 05ff4c22bbd6d8a4989f093c39496f38, type: 3}
+  - {fileID: 8300000, guid: 93d0330fe74a6e045b8a1929539b56f6, type: 3}
+  - {fileID: 8300000, guid: 4f2eb7c191c6ba84983101cc9bf9fdba, type: 3}
+  - {fileID: 8300000, guid: 2a7a4c5a99a0cae45bb8c46d751f5f23, type: 3}
+  - {fileID: 8300000, guid: 1bc3f0d5952ad7942a2bd0f054c00a8f, type: 3}
+  - {fileID: 8300000, guid: 123d31e7b1bbd7042bd1339d92190773, type: 3}
+  - {fileID: 8300000, guid: 78b246a7d074e7f4bb5b19c328c7cea3, type: 3}
+  - {fileID: 8300000, guid: 9d05536bd15b7314db5cc12de1151623, type: 3}
   deathSounds:
   - {fileID: 8300000, guid: f79a3d4886c0ff34694389ffe00545bb, type: 3}
   - {fileID: 8300000, guid: 9fb0de6c847ce0a44a85c83539d75d95, type: 3}
@@ -1685,6 +1693,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ef23134be4ebf1f47b7d3816f77defb0, type: 3}
   - {fileID: 8300000, guid: 3cc1d83ec828c034694f38be1d1d3228, type: 3}
   - {fileID: 8300000, guid: 3c7065d041765a3448a365289606b0d4, type: 3}
+  fireRate: 0.2
 --- !u!50 &1056530238
 Rigidbody2D:
   serializedVersion: 4

@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
 
     [Range (1, 10)]
     [SerializeField] private float lifeTime = 3f;
-    public HealthBar healthBar;
 
     private Rigidbody2D rb;
     
