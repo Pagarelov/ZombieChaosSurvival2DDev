@@ -7,9 +7,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Weapon weapon;
     public HealthBar healthBar;
-    public AudioClip[] fireSounds;
-    public AudioClip[] deathSounds;
-    private AudioSource audioSource;
+    public AudioClip fireSound; 
 
     public float fireRate = 0.2f;
     private float nextFireTime = 0f;
@@ -21,10 +19,14 @@ public class PlayerController : MonoBehaviour
     private float moveX;
     private float moveY;
 
+    public AudioClip[] deathSounds;
+
+    private AudioSource audioSource; 
+
     private void Start()
     {
         weapon = GetComponentInChildren<Weapon>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>(); 
     }
 
     private void Update()
@@ -46,10 +48,9 @@ public class PlayerController : MonoBehaviour
             weapon.Fire(fireRate, nextFireTime);
             nextFireTime = Time.time + fireRate;
 
-            if (fireSounds != null && fireSounds.Length > 0)
+            if (fireSound != null)
             {
-                int randomIndex = Random.Range(0, fireSounds.Length);
-                audioSource.PlayOneShot(fireSounds[randomIndex]);
+                audioSource.PlayOneShot(fireSound);
             }
         }
 
