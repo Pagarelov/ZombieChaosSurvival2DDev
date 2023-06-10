@@ -1672,7 +1672,16 @@ MonoBehaviour:
   rb: {fileID: 1056530238}
   weapon: {fileID: 1182969226}
   healthBar: {fileID: 1136016840}
-  fireSound: {fileID: 8300000, guid: c00aeb0af53cb1f4c97dc38ccec34ac6, type: 3}
+  fireSounds:
+  - {fileID: 8300000, guid: df52045ab4f880b478fa6dce7691cc95, type: 3}
+  - {fileID: 8300000, guid: c88e131456d60d24b9cecba0b9d86db9, type: 3}
+  - {fileID: 8300000, guid: e9fe22f6e6778ff44a31ff6643843e32, type: 3}
+  - {fileID: 8300000, guid: 7b55bbc0f282b71419fee8e3423d8536, type: 3}
+  - {fileID: 8300000, guid: 2cb54187ae86a9e4a807a1f1f702e580, type: 3}
+  - {fileID: 8300000, guid: 66d4d78dfec5016468dc6366c928f7c4, type: 3}
+  - {fileID: 8300000, guid: b6b1ac25086fa944dafb55afb973bd29, type: 3}
+  - {fileID: 8300000, guid: b29f7f5605863e6428e8fdf7d0170dfe, type: 3}
+  - {fileID: 8300000, guid: 2a4bd03059d173b4bb72315d4190e57b, type: 3}
   fireRate: 0.2
   deathSounds:
   - {fileID: 8300000, guid: f79a3d4886c0ff34694389ffe00545bb, type: 3}
@@ -2649,7 +2658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442188505}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.98, y: -9.97, z: 0}
+  m_LocalPosition: {x: -0.01, y: 10.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
