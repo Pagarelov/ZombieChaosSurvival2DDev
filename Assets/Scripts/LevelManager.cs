@@ -11,11 +11,19 @@ public class LevelManager : MonoBehaviour
     public GameObject deathScreen;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI HighscoreText;
+    public TextMeshProUGUI SurvivalTimeText;
 
     public SaveData data;
-    
+
+    public float survivalTime;
+    private float currentTime;
 
     public int score;
+
+    private void Update()
+    {
+        currentTime += Time.deltaTime;
+    }
 
     private void Awake()
     {
@@ -23,6 +31,7 @@ public class LevelManager : MonoBehaviour
         SaveSystem.Initialize();
         
         data = new SaveData(0);
+        currentTime = 0f;
     }
 
     public IEnumerator ShowGameOver()
@@ -30,7 +39,7 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         deathScreen.SetActive(true);
 
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = "Счет: " + score.ToString();
 
         string loadedData = SaveSystem.Load("save");
         if (loadedData != null)
@@ -42,7 +51,10 @@ public class LevelManager : MonoBehaviour
         {
             data.highscore = score;
         }
-        HighscoreText.text = "Highscore: " + data.highscore.ToString();
+        HighscoreText.text = "Рекорд: " + data.highscore.ToString();
+
+        string formattedTime = string.Format("{1:00}", Mathf.Floor(currentTime / 60), currentTime % 60); //{0:0}
+        SurvivalTimeText.text = "Время выживания: " + formattedTime;
 
         string saveData = JsonUtility.ToJson(data);
         SaveSystem.Save("save", saveData);

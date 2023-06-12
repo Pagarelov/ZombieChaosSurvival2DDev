@@ -8,7 +8,7 @@ public class RangedEnemy : MonoBehaviour
     public float moveSpeed;
     public float rotateSpeed = 0.0025f;
     public float enemyHealth = 1f;
-    public float distanceThreshold = 100f;
+    public float distanceThreshold = 150f;
 
     private Rigidbody2D rb;
     public GameObject bulletPrefab;

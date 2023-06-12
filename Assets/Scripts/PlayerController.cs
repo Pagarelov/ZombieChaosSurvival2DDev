@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Weapon weapon;
     public HealthBar healthBar;
-    public AudioClip[] fireSounds; // Changed the variable name to fireSounds
+    public AudioClip[] fireSounds;
+    public AudioClip[] deathSounds;
 
     public float fireRate = 0.2f;
     private float nextFireTime = 0f;
@@ -18,8 +19,6 @@ public class PlayerController : MonoBehaviour
 
     private float moveX;
     private float moveY;
-
-    public AudioClip[] deathSounds;
 
     private AudioSource audioSource;
 
