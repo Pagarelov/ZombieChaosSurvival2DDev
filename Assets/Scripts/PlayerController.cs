@@ -65,17 +65,18 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, aimAngle);
 
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
-            healthBar.TakeDamage(5);
+            healthBar.TakeDamage(2);
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            healthBar.TakeDamage(5);
+            healthBar.TakeDamage(3);
         }
 
         if (healthAmout <= 0)

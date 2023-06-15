@@ -55,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
     {
         maxActiveEnemies++;
         currentWaveIndex++;
-        checkInterval++;
+        //checkInterval++;
     }
 
     private IEnumerator CheckActiveEnemies()

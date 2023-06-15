@@ -1,3 +1,0 @@
-E:GameDevZCSurvival2D filter=lfs diff=lfs merge=lfs -text
-E:/GameDev/ZCSurvival2D/.git/ filter=lfs diff=lfs merge=lfs -text
-E:GameDevZCSurvival2DLibraryPackageCache filter=lfs diff=lfs merge=lfs -text
