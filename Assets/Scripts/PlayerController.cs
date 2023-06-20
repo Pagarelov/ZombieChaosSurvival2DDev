@@ -59,14 +59,16 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        Vector2 aimDirection = mousePosition - rb.position;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-        transform.rotation = Quaternion.Euler(0, 0, aimAngle);
+{
+    Vector2 aimDirection = mousePosition - rb.position;
+    float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+    transform.rotation = Quaternion.Euler(0, 0, aimAngle);
 
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    }
+    rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
+
+    mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+}
+
 
     private void OnCollisionEnter2D(Collision2D other)
     {

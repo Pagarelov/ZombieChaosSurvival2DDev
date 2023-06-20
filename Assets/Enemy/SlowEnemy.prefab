@@ -782,6 +782,7 @@ GameObject:
   - component: {fileID: 5986667563294229901}
   - component: {fileID: 7477981007403960090}
   - component: {fileID: -5440539819237797402}
+  - component: {fileID: 8227539026644699742}
   m_Layer: 0
   m_Name: SlowEnemy
   m_TagString: Enemy
@@ -881,6 +882,19 @@ MonoBehaviour:
   rotateSpeed: 0.05
   enemyHealth: 2
   distanceThreshold: 100
+  deathEnemySounds:
+  - {fileID: 8300000, guid: bdc0460dd494e8c42aa4259984a7d32d, type: 3}
+  - {fileID: 8300000, guid: 504c350b691c8464f86eae932258597e, type: 3}
+  - {fileID: 8300000, guid: d4ffb8a0815fcc940b8e3e8236be6a15, type: 3}
+  - {fileID: 8300000, guid: 06d5a389447ed404696c5ea0e650eefc, type: 3}
+  - {fileID: 8300000, guid: 816dc29183f75774287bc0de8f1b6edb, type: 3}
+  - {fileID: 8300000, guid: a6e11bc0dbd4295469520c9a266c2eb2, type: 3}
+  - {fileID: 8300000, guid: 6494672a07c5be24ba9e8cd375f7163f, type: 3}
+  - {fileID: 8300000, guid: f6144355c9a570d4aa8dcf2818038e18, type: 3}
+  - {fileID: 8300000, guid: dad55d862cdcf9643bfb95ab32253a1e, type: 3}
+  - {fileID: 8300000, guid: 4372d6a1437c33a458ec6d4d42b3caed, type: 3}
+  - {fileID: 8300000, guid: cf0981af56369494b9bbf9af2b5ca147, type: 3}
+  - {fileID: 8300000, guid: ff80332b6d87f96469683ee826dd593e, type: 3}
 --- !u!50 &5986667563294229901
 Rigidbody2D:
   serializedVersion: 4
@@ -973,3 +987,99 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!82 &8227539026644699742
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743065041116401786}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

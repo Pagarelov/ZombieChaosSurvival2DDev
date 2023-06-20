@@ -1807,6 +1807,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ef23134be4ebf1f47b7d3816f77defb0, type: 3}
   - {fileID: 8300000, guid: 3cc1d83ec828c034694f38be1d1d3228, type: 3}
   - {fileID: 8300000, guid: 3c7065d041765a3448a365289606b0d4, type: 3}
+  - {fileID: 8300000, guid: f9bae7917ed16ec44b2fc67cd8078a8c, type: 3}
+  - {fileID: 8300000, guid: 7ce50e4976a529647ae3cbcdf325676f, type: 3}
+  - {fileID: 8300000, guid: f3b4a25505a84bf46a855d3ee55b7ce4, type: 3}
+  - {fileID: 8300000, guid: 97ab3e1bbf487064683ae852749097fd, type: 3}
+  - {fileID: 8300000, guid: caf51573aa394854fb7248f4202f426a, type: 3}
+  - {fileID: 8300000, guid: 360d43516d6b7a645823ec7e971b0a20, type: 3}
   fireRate: 0.2
 --- !u!50 &1056530238
 Rigidbody2D:

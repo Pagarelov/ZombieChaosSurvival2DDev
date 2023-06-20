@@ -8,10 +8,14 @@ public class Enemy : MonoBehaviour
     public float enemyHealth = 1f;
     public float distanceThreshold = 150f;
     private Rigidbody2D rb;
-    
+    public AudioClip[] deathEnemySounds;
+
+    private AudioSource audioSource;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         GetTarget();
     }
 
@@ -54,7 +58,7 @@ public class Enemy : MonoBehaviour
             target = player.transform;
         } 
     }
-
+    
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player")) {
 
@@ -62,6 +66,8 @@ public class Enemy : MonoBehaviour
             enemyHealth--;
             if (enemyHealth <= 0) {
                 LevelManager.manager.IncreaseScore(1);
+                int randomIndex = Random.Range(0, deathEnemySounds.Length);
+                AudioSource.PlayClipAtPoint(deathEnemySounds[randomIndex], transform.position);
                 Destroy(other.gameObject);
                 Destroy(gameObject);
             }

@@ -20,10 +20,14 @@ public class RangedEnemy : MonoBehaviour
     private float timeToFire;
 
     public Transform firingPoint;
-    
+    public AudioClip[] deathEnemySounds;
+
+    private AudioSource audioSource;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -99,6 +103,8 @@ public class RangedEnemy : MonoBehaviour
             enemyHealth--;
             if (enemyHealth <= 0) {
                 LevelManager.manager.IncreaseScore(1);
+                int randomIndex = Random.Range(0, deathEnemySounds.Length);
+                AudioSource.PlayClipAtPoint(deathEnemySounds[randomIndex], transform.position);
                 Destroy(other.gameObject);
                 Destroy(gameObject);
             }
