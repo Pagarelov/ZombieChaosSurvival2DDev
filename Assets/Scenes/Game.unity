@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109019787}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 0, z: 0}
+  m_LocalPosition: {x: -40, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -167,7 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aec86a75a400540afdf3bf226934de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 0.4
+  spawnRadius: 10
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -175,6 +176,9 @@ MonoBehaviour:
   - {fileID: 8743065041116401786, guid: fb29df14b5486e841bd6ad80c79d3328, type: 3}
   maxActiveEnemies: 1
   checkInterval: 1
+  startDelay: 13
+  waveSize: 3
+  waveIncreaseAmount: 2
 --- !u!1 &122698306
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122698306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 20, z: 0}
+  m_LocalPosition: {x: 40, y: 40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -219,7 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aec86a75a400540afdf3bf226934de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 0.4
+  spawnRadius: 10
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -227,6 +232,9 @@ MonoBehaviour:
   - {fileID: 8743065041116401786, guid: fb29df14b5486e841bd6ad80c79d3328, type: 3}
   maxActiveEnemies: 1
   checkInterval: 1
+  startDelay: 13
+  waveSize: 3
+  waveIncreaseAmount: 2
 --- !u!1 &141558885
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +245,8 @@ GameObject:
   m_Component:
   - component: {fileID: 141558886}
   - component: {fileID: 141558887}
+  - component: {fileID: 141558889}
+  - component: {fileID: 141558888}
   m_Layer: 0
   m_Name: Flashlight Light 2D
   m_TagString: Untagged
@@ -276,7 +286,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.725
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -338,6 +348,118 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!82 &141558888
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141558885}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &141558889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141558885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c5a3adaad365b49bf95b4efd0e198c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 13
+  newIntensity: 2
+  transitionDuration: 2
+  flashlightSound: {fileID: 8300000, guid: 6a354361352c41245b249df6bae6380b, type: 3}
 --- !u!1 &165145808
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215009166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: -20, z: 0}
+  m_LocalPosition: {x: 40, y: -40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -453,7 +575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aec86a75a400540afdf3bf226934de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 0.4
+  spawnRadius: 10
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -461,6 +584,9 @@ MonoBehaviour:
   - {fileID: 8743065041116401786, guid: fb29df14b5486e841bd6ad80c79d3328, type: 3}
   maxActiveEnemies: 1
   checkInterval: 1
+  startDelay: 13
+  waveSize: 3
+  waveIncreaseAmount: 2
 --- !u!1 &228354855
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228354855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 20, z: 0}
+  m_LocalPosition: {x: -40, y: 40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -505,7 +631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aec86a75a400540afdf3bf226934de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 0.4
+  spawnRadius: 10
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -513,6 +640,9 @@ MonoBehaviour:
   - {fileID: 8743065041116401786, guid: fb29df14b5486e841bd6ad80c79d3328, type: 3}
   maxActiveEnemies: 1
   checkInterval: 1
+  startDelay: 13
+  waveSize: 3
+  waveIncreaseAmount: 2
 --- !u!1 &286394983
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351851610}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: -20, z: 0}
+  m_LocalPosition: {x: -40, y: -40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -657,7 +787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aec86a75a400540afdf3bf226934de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 0.4
+  spawnRadius: 10
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -665,6 +796,9 @@ MonoBehaviour:
   - {fileID: 8743065041116401786, guid: fb29df14b5486e841bd6ad80c79d3328, type: 3}
   maxActiveEnemies: 1
   checkInterval: 1
+  startDelay: 13
+  waveSize: 3
+  waveIncreaseAmount: 2
 --- !u!1 &382593192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,7 +1855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886220388}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalPosition: {x: 40, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1740,7 +1874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aec86a75a400540afdf3bf226934de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 0.4
+  spawnRadius: 10
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -1748,6 +1883,53 @@ MonoBehaviour:
   - {fileID: 8743065041116401786, guid: fb29df14b5486e841bd6ad80c79d3328, type: 3}
   maxActiveEnemies: 1
   checkInterval: 1
+  startDelay: 13
+  waveSize: 3
+  waveIncreaseAmount: 2
+--- !u!1 &1034041902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034041903}
+  - component: {fileID: 1034041904}
+  m_Layer: 0
+  m_Name: FPSDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1034041903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034041902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1034041904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034041902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb22f481313da041a31102d06026c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1056530236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,7 +1994,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f3b4a25505a84bf46a855d3ee55b7ce4, type: 3}
   - {fileID: 8300000, guid: 97ab3e1bbf487064683ae852749097fd, type: 3}
   - {fileID: 8300000, guid: caf51573aa394854fb7248f4202f426a, type: 3}
-  - {fileID: 8300000, guid: 360d43516d6b7a645823ec7e971b0a20, type: 3}
+  - {fileID: 8300000, guid: d88377e042d4bfc409e5bcf57441dd39, type: 3}
   fireRate: 0.2
 --- !u!50 &1056530238
 Rigidbody2D:
@@ -2923,7 +3105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442188505}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalPosition: {x: 0, y: 40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2942,7 +3124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aec86a75a400540afdf3bf226934de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 0.4
+  spawnRadius: 10
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -2950,6 +3133,9 @@ MonoBehaviour:
   - {fileID: 8743065041116401786, guid: fb29df14b5486e841bd6ad80c79d3328, type: 3}
   maxActiveEnemies: 1
   checkInterval: 1
+  startDelay: 13
+  waveSize: 3
+  waveIncreaseAmount: 2
 --- !u!1 &1444055649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2960,6 +3146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1444055650}
   - component: {fileID: 1444055651}
+  - component: {fileID: 1444055652}
   m_Layer: 0
   m_Name: Spot Light 2D
   m_TagString: Untagged
@@ -2999,7 +3186,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.75
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -3061,6 +3248,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1444055652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444055649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a0d0308bd50c64f905b07db8ba4403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 6
+  newIntensity: 1
+  transitionDuration: 3
 --- !u!1 &1748078717
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,7 +3557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938638761}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -20, z: 0}
+  m_LocalPosition: {x: 0, y: -40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3374,7 +3576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aec86a75a400540afdf3bf226934de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 0.4
+  spawnRadius: 10
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -3382,6 +3585,9 @@ MonoBehaviour:
   - {fileID: 8743065041116401786, guid: fb29df14b5486e841bd6ad80c79d3328, type: 3}
   maxActiveEnemies: 1
   checkInterval: 1
+  startDelay: 13
+  waveSize: 3
+  waveIncreaseAmount: 2
 --- !u!1 &1978078561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3392,6 +3598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1978078563}
   - component: {fileID: 1978078562}
+  - component: {fileID: 1978078564}
   m_Layer: 0
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -3416,7 +3623,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -3486,13 +3693,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978078561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2502122, y: 0.4025095, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1978078564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978078561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4be72b8e49a41348a61ea02a1550f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetIntensity: 0
+  transitionDuration: 4
 --- !u!1 &1989416256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3860,7 +4081,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111192391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.882905, y: 2.7612045, z: 0.044397213}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -7,17 +7,23 @@ public class EnemySpawner : MonoBehaviour
     public static EnemySpawner spawner;
 
     [SerializeField] private float spawnRate = 1f;
+    [SerializeField] private float spawnRadius = 5f;
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private int maxActiveEnemies = 5;
     [SerializeField] private float checkInterval = 1f;
+    [SerializeField] private float startDelay = 10f;
+    [SerializeField] private int waveSize = 3;
+    [SerializeField] private int waveIncreaseAmount = 2;
 
     private List<GameObject> activeEnemies = new List<GameObject>();
 
     private int currentWaveIndex = 0;
     private int enemiesSpawned = 0;
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(startDelay);
+
         StartCoroutine(Spawner());
         StartCoroutine(CheckActiveEnemies());
     }
@@ -25,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator Spawner()
     {
         WaitForSeconds wait = new WaitForSeconds(spawnRate);
+        int enemiesSpawnedInWave = 0;
 
         while (true)
         {
@@ -32,13 +39,15 @@ public class EnemySpawner : MonoBehaviour
             if (activeEnemies.Count < maxActiveEnemies)
             {
                 GameObject enemyToSpawn = GetRandomEnemyPrefab();
-                GameObject spawnedEnemy = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+                Vector3 randomSpawnPosition = transform.position + Random.insideUnitSphere * spawnRadius;
+                GameObject spawnedEnemy = Instantiate(enemyToSpawn, randomSpawnPosition, Quaternion.identity);
                 activeEnemies.Add(spawnedEnemy);
                 enemiesSpawned++;
 
-                if (enemiesSpawned >= maxActiveEnemies)
+                enemiesSpawnedInWave++;
+                if (enemiesSpawnedInWave >= waveSize)
                 {
-                    enemiesSpawned = 0;
+                    enemiesSpawnedInWave = 0;
                     IncreaseDifficulty();
                 }
             }
@@ -53,9 +62,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void IncreaseDifficulty()
     {
-        maxActiveEnemies++;
+        maxActiveEnemies += waveIncreaseAmount;
+        waveSize += waveIncreaseAmount;
         currentWaveIndex++;
-        //checkInterval++;
     }
 
     private IEnumerator CheckActiveEnemies()
