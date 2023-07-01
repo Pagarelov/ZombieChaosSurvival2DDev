@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 0.4
-  spawnRadius: 10
+  spawnRadius: 30
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 0.4
-  spawnRadius: 10
+  spawnRadius: 30
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 0.4
-  spawnRadius: 10
+  spawnRadius: 30
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -632,7 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 0.4
-  spawnRadius: 10
+  spawnRadius: 30
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ecd73d70bf7324dbc0580f0562903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 804189611843701045, guid: 8e8480aa3249233459ee1060cd8f5fca, type: 3}
+  bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
   fireForce: 20
 --- !u!212 &286394986
@@ -788,7 +788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 0.4
-  spawnRadius: 10
+  spawnRadius: 30
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -832,10 +832,10 @@ RectTransform:
   m_Father: {fileID: 1269673507}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -280}
-  m_SizeDelta: {x: 640, y: 126}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 428, y: 100}
+  m_SizeDelta: {x: 750, y: 126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382593194
 MonoBehaviour:
@@ -884,14 +884,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 16
-  m_HorizontalAlignment: 2
+  m_fontStyle: 33
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ecd73d70bf7324dbc0580f0562903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 804189611843701045, guid: 8e8480aa3249233459ee1060cd8f5fca, type: 3}
+  bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
   fireForce: 20
 --- !u!212 &432958202
@@ -1139,7 +1139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1229,7 +1229,7 @@ Transform:
   - {fileID: 1353098819}
   - {fileID: 394365496}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -1405,10 +1405,10 @@ RectTransform:
   m_Father: {fileID: 1269673507}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -194}
-  m_SizeDelta: {x: 640, y: 126}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 428, y: 200}
+  m_SizeDelta: {x: 750, y: 126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &629202989
 MonoBehaviour:
@@ -1463,8 +1463,8 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 17
-  m_HorizontalAlignment: 2
+  m_fontStyle: 33
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1552,7 +1552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ecd73d70bf7324dbc0580f0562903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 804189611843701045, guid: 8e8480aa3249233459ee1060cd8f5fca, type: 3}
+  bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
   fireForce: 20
 --- !u!212 &801764533
@@ -1641,12 +1641,12 @@ RectTransform:
   m_Children:
   - {fileID: 2128211454}
   m_Father: {fileID: 1269673507}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -260, y: 100}
-  m_SizeDelta: {x: 500, y: 126}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 202, y: 100}
+  m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &835275908
 MonoBehaviour:
@@ -1875,7 +1875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 0.4
-  spawnRadius: 10
+  spawnRadius: 30
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -1963,8 +1963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0827de3680d8264449d6eeb7e7f96c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  healthAmout: 100
+  healthAmount: 100
   rb: {fileID: 1056530238}
   weapon: {fileID: 1182969226}
   healthBar: {fileID: 1136016840}
@@ -1983,7 +1982,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9fb0de6c847ce0a44a85c83539d75d95, type: 3}
   - {fileID: 8300000, guid: c8fd9346c9ba8ad42823ab92c93255b8, type: 3}
   - {fileID: 8300000, guid: 8722049b25135194a945c1741b301329, type: 3}
-  - {fileID: 8300000, guid: 8722049b25135194a945c1741b301329, type: 3}
   - {fileID: 8300000, guid: f4274acff07b021408d4ece779dae15c, type: 3}
   - {fileID: 8300000, guid: b6b7eb5285b5e1c47bd80f14e9a81012, type: 3}
   - {fileID: 8300000, guid: ef23134be4ebf1f47b7d3816f77defb0, type: 3}
@@ -1995,7 +1993,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97ab3e1bbf487064683ae852749097fd, type: 3}
   - {fileID: 8300000, guid: caf51573aa394854fb7248f4202f426a, type: 3}
   - {fileID: 8300000, guid: d88377e042d4bfc409e5bcf57441dd39, type: 3}
-  fireRate: 0.2
 --- !u!50 &1056530238
 Rigidbody2D:
   serializedVersion: 4
@@ -2101,7 +2098,7 @@ Transform:
   - {fileID: 141558886}
   - {fileID: 1444055650}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1056530242
 AudioSource:
@@ -2232,10 +2229,10 @@ RectTransform:
   m_Father: {fileID: 1269673507}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -350}
-  m_SizeDelta: {x: 640, y: 126}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 553, y: 0}
+  m_SizeDelta: {x: 1000, y: 126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1134595316
 MonoBehaviour:
@@ -2284,14 +2281,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 16
-  m_HorizontalAlignment: 2
+  m_fontStyle: 33
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2320,7 +2317,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.005248985, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2470,7 +2467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ecd73d70bf7324dbc0580f0562903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 804189611843701045, guid: 8e8480aa3249233459ee1060cd8f5fca, type: 3}
+  bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
   fireForce: 20
 --- !u!212 &1174382141
@@ -2737,8 +2734,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 835275907}
   - {fileID: 1864981705}
+  - {fileID: 835275907}
   - {fileID: 1312340741}
   - {fileID: 629202988}
   - {fileID: 382593193}
@@ -3125,7 +3122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 0.4
-  spawnRadius: 10
+  spawnRadius: 30
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -3260,9 +3257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a0d0308bd50c64f905b07db8ba4403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 6
-  newIntensity: 1
-  transitionDuration: 3
 --- !u!1 &1748078717
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,17 +3420,17 @@ RectTransform:
   m_GameObject: {fileID: 1864981704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1748078718}
   m_Father: {fileID: 1269673507}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 640, y: 150}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 202, y: 212}
+  m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1864981706
 MonoBehaviour:
@@ -3577,7 +3571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 0.4
-  spawnRadius: 10
+  spawnRadius: 30
   enemyPrefabs:
   - {fileID: 8743065041116401786, guid: 79bd9abeded20f448a32c89b8724598f, type: 3}
   - {fileID: 8743065041116401786, guid: 2abe3ae8da63e56439ec8a6b749eb082, type: 3}
@@ -3698,7 +3692,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1978078564
 MonoBehaviour:
@@ -4001,7 +3995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ecd73d70bf7324dbc0580f0562903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 804189611843701045, guid: 8e8480aa3249233459ee1060cd8f5fca, type: 3}
+  bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
   fireForce: 20
 --- !u!212 &2088287330
@@ -4080,13 +4074,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111192391}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2111192393
 MonoBehaviour:
@@ -4100,11 +4094,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7474e8382d7d0374aa1ee1a52a4641ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7211211902140449894, guid: 6a01dbfcf14c74e4ab1b4ae421e18285, type: 3}
-  _xSize: 5
-  _ySize: 5
-  _x: 500
-  _y: 500
+  landscapePrefabs:
+  - {fileID: 3384228140850324464, guid: 94a39e6b2c3fc9645b39181ffee5bc10, type: 3}
+  player: {fileID: 1056530241}
+  chunkSize: 5
+  radius: 50
+  maxChunks: 20
 --- !u!1 &2128211453
 GameObject:
   m_ObjectHideFlags: 0

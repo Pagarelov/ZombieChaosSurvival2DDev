@@ -29,30 +29,38 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private IEnumerator Spawner()
+{
+    WaitForSeconds wait = new WaitForSeconds(spawnRate);
+    int enemiesSpawnedInWave = 0;
+
+    while (true)
     {
-        WaitForSeconds wait = new WaitForSeconds(spawnRate);
-        int enemiesSpawnedInWave = 0;
-
-        while (true)
+        yield return wait;
+        if (activeEnemies.Count < maxActiveEnemies)
         {
-            yield return wait;
-            if (activeEnemies.Count < maxActiveEnemies)
-            {
-                GameObject enemyToSpawn = GetRandomEnemyPrefab();
-                Vector3 randomSpawnPosition = transform.position + Random.insideUnitSphere * spawnRadius;
-                GameObject spawnedEnemy = Instantiate(enemyToSpawn, randomSpawnPosition, Quaternion.identity);
-                activeEnemies.Add(spawnedEnemy);
-                enemiesSpawned++;
+            GameObject enemyToSpawn = GetRandomEnemyPrefab();
+            Vector3 randomSpawnPosition = GetRandomSpawnPosition();
+            GameObject spawnedEnemy = Instantiate(enemyToSpawn, randomSpawnPosition, Quaternion.identity);
+            activeEnemies.Add(spawnedEnemy);
+            enemiesSpawned++;
 
-                enemiesSpawnedInWave++;
-                if (enemiesSpawnedInWave >= waveSize)
-                {
-                    enemiesSpawnedInWave = 0;
-                    IncreaseDifficulty();
-                }
+            enemiesSpawnedInWave++;
+            if (enemiesSpawnedInWave >= waveSize)
+            {
+                enemiesSpawnedInWave = 0;
+                IncreaseDifficulty();
             }
         }
     }
+}
+
+private Vector3 GetRandomSpawnPosition()
+{
+    Vector3 randomPoint = Random.insideUnitSphere * spawnRadius;
+    randomPoint += transform.position;
+    randomPoint.y = transform.position.y; // Assuming enemies should spawn at the same height as the spawner
+    return randomPoint;
+}
 
     private GameObject GetRandomEnemyPrefab()
     {

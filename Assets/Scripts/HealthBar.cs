@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +10,7 @@ public class HealthBar : MonoBehaviour
         playerController = playerController = FindObjectOfType<PlayerController>();
         if (playerController != null)
         {
-            float healthAmount = playerController.healthAmout; 
+            float healthAmount = playerController.healthAmount; 
             healthBar.fillAmount = healthAmount / 100f;
         }
         else
@@ -29,8 +27,8 @@ public class HealthBar : MonoBehaviour
     {
         if (playerController != null)
         {
-            playerController.healthAmout -= damage; 
-            float healthAmount = playerController.healthAmout; 
+            playerController.healthAmount -= damage; 
+            float healthAmount = playerController.healthAmount; 
             healthBar.fillAmount = healthAmount / 100f;
         }
         else

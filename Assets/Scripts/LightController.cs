@@ -3,9 +3,9 @@ using UnityEngine.Rendering.Universal;
 
 public class LightController : MonoBehaviour
 {
-    public float delay = 5f;
-    public float newIntensity = 1f; 
-    public float transitionDuration = 2f; 
+    private float delay = 5f;
+    private float newIntensity = 1f;
+    private float transitionDuration = 2f; 
 
     private Light2D flashlight;
     private float initialIntensity;
