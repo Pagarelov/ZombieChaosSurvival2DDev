@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0827de3680d8264449d6eeb7e7f96c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 1000
+  healthAmount: 100
   rb: {fileID: 1056530238}
   weapon: {fileID: 1182969226}
   healthBar: {fileID: 1136016840}
