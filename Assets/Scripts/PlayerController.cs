@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float FireRate { get; set; } = 0.2f;
     private float nextFireTime = 0f;
     private bool isFiring = false;
+    private bool isDead = false;
 
     private Vector2 moveDirection;
     private Vector2 mousePosition;
@@ -49,6 +50,11 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Die();
+        }
     }
 
     private void FixedUpdate()
@@ -64,6 +70,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (isDead) return; // Игрок мертв, выходим из метода
+
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
             healthBar.TakeDamage(2);
@@ -75,10 +83,7 @@ public class PlayerController : MonoBehaviour
 
         if (healthAmount <= 0)
         {
-            LevelManager.manager.GameOver();
-            Destroy(gameObject);
-            int randomIndex = Random.Range(0, deathSounds.Length);
-            AudioSource.PlayClipAtPoint(deathSounds[randomIndex], transform.position);
+            Die();
         }
     }
 
@@ -92,5 +97,16 @@ public class PlayerController : MonoBehaviour
             int randomIndex = Random.Range(0, fireSounds.Length);
             audioSource.PlayOneShot(fireSounds[randomIndex]);
         }
+    }
+
+    private void Die()
+    {
+        if (isDead) return;
+
+        isDead = true;
+        LevelManager.manager.GameOver();
+        Destroy(gameObject);
+        int randomIndex = Random.Range(0, deathSounds.Length);
+        AudioSource.PlayClipAtPoint(deathSounds[randomIndex], transform.position);
     }
 }
