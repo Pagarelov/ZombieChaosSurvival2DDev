@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0827de3680d8264449d6eeb7e7f96c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 100
+  healthAmount: 1000
   rb: {fileID: 1056530238}
   weapon: {fileID: 1182969226}
   healthBar: {fileID: 1136016840}
@@ -4094,12 +4094,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7474e8382d7d0374aa1ee1a52a4641ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landscapePrefabs:
-  - {fileID: 3384228140850324464, guid: 94a39e6b2c3fc9645b39181ffee5bc10, type: 3}
-  player: {fileID: 1056530241}
-  chunkSize: 5
-  radius: 50
-  maxChunks: 20
+  prefab: {fileID: 7211211902140449894, guid: 6a01dbfcf14c74e4ab1b4ae421e18285, type: 3}
+  _xSize: 5
+  _ySize: 5
+  _x: 300
+  _y: 300
+  _playerTransform: {fileID: 1056530241}
 --- !u!1 &2128211453
 GameObject:
   m_ObjectHideFlags: 0

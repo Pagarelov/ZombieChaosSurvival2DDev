@@ -1,86 +1,74 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LandscapeGenerator : MonoBehaviour
 {
-    public GameObject[] landscapePrefabs; // Массив префабов элементов ландшафта
-    public GameObject player; // Ссылка на объект игрока
-    public float chunkSize = 10f; // Размер каждого чанка ландшафта
-    public float radius = 20f; // Радиус области генерации ландшафта
-    public int maxChunks = 5; // Максимальное количество предыдущих чанков, которые будут храниться
-
-    private List<GameObject> chunks = new List<GameObject>(); // Список для хранения предыдущих чанков
+    [SerializeField] private Transform prefab;
+    [SerializeField] private int _xSize;
+    [SerializeField] private int _ySize;
+    [SerializeField] private int _x;
+    [SerializeField] private int _y;
+    [SerializeField] private Transform _playerTransform;
+    private bool _isLandscapeGenerated;
+    private int _previousX;
+    private int _previousY;
+    private Vector3 _playerStartPosition;
 
     private void Start()
     {
-        GenerateChunks();
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        _playerStartPosition = _playerTransform.position;
+        GenerateLandscape();
+    }
+
+    private void GenerateLandscape()
+    {
+        if (_isLandscapeGenerated)
+        {
+            return;
+        }
+
+        for (int x = 0; x < _x; x++)
+        {
+            for (int y = 0; y < _y; y++)
+            {
+                Instantiate(prefab, new Vector3(x * _xSize - _x * _xSize / 2, y * _ySize - _y * _ySize / 2, 0),
+                    Quaternion.identity, transform);
+            }
+        }
+        _previousX = _x;
+        _previousY = _y;
+        _isLandscapeGenerated = true;
     }
 
     private void Update()
     {
-        // Проверяем, если игрок вышел за пределы текущего чанка
-        if (!IsPlayerInCurrentChunk())
+        // Проверка, если игрок вышел за границу по оси X или Y
+        if (PlayerOutOfBoundaries())
         {
-            GenerateChunks();
-            DestroyChunks();
+            ResetLandscape();
         }
     }
 
-    private bool IsPlayerInCurrentChunk()
+    private bool PlayerOutOfBoundaries()
     {
-        // Проверяем, существует ли объект player
-        if (player == null)
-            return false;
-
-        // Определяем текущий чанк, в котором находится игрок
-        Vector3 playerPosition = player.transform.position;
-
-        if (chunks.Count > 0)
-        {
-            Vector3 currentChunkPosition = chunks[chunks.Count - 1].transform.position;
-
-            // Проверяем расстояние между игроком и текущим чанком
-            float distanceToCurrentChunk = Vector3.Distance(playerPosition, currentChunkPosition);
-
-            return distanceToCurrentChunk <= radius;
-        }
-
-        return false;
+        // Проверка условия, когда игрок вышел за границу
+        Vector3 playerPosition = _playerTransform.position;
+        return playerPosition.x < -_x * _xSize / 2 || playerPosition.x > _x * _xSize / 2 ||
+               playerPosition.y < -_y * _ySize / 2 || playerPosition.y > _y * _ySize / 2;
     }
 
-    private void GenerateChunks()
+    private void ResetLandscape()
     {
-        // Определяем количество чанков, которые нужно сгенерировать
-        int chunksToGenerate = Mathf.CeilToInt(radius / chunkSize);
+        // Уничтожаем все сгенерированные объекты пола
+        // foreach (Transform child in transform)
+        // {
+        //     Destroy(child.gameObject);
+        // }
 
-        // Определяем позицию центрального чанка
-        Vector3 centerPosition = player.transform.position;
+        // Перемещаем игрока на начальную позицию
+        _playerTransform.position = _playerStartPosition;
 
-        // Генерируем чанки вокруг игрока
-        for (int i = 0; i < chunksToGenerate; i++)
-        {
-            // Вычисляем позицию для каждого чанка
-            Vector3 chunkPosition = centerPosition + (Vector3.right * i * chunkSize) + (Vector3.right * chunkSize * 0.5f);
-
-            // Случайным образом выбираем префаб элемента ландшафта
-            GameObject randomPrefab = landscapePrefabs[Random.Range(0, landscapePrefabs.Length)];
-
-            // Создаем новый чанк ландшафта из выбранного префаба
-            GameObject newChunk = Instantiate(randomPrefab, chunkPosition, Quaternion.identity);
-
-            // Добавляем новый чанк в список предыдущих чанков
-            chunks.Add(newChunk);
-        }
-    }
-
-    private void DestroyChunks()
-    {
-        // Проверяем, если количество предыдущих чанков превышает максимальное значение
-        while (chunks.Count > maxChunks)
-        {
-            GameObject chunkToRemove = chunks[0];
-            chunks.RemoveAt(0);
-            Destroy(chunkToRemove);
-        }
+        // Генерируем пол заново
+        // GenerateLandscape();
     }
 }
