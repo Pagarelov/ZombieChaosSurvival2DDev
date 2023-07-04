@@ -2,56 +2,58 @@ using UnityEngine;
 
 public class LandscapeGenerator : MonoBehaviour
 {
-    [SerializeField] private Transform prefab;
-    [SerializeField] private int _xSize;
-    [SerializeField] private int _ySize;
-    [SerializeField] private int _x;
-    [SerializeField] private int _y;
-    [SerializeField] private Transform _playerTransform;
-    private bool _isLandscapeGenerated;
-    private int _previousX;
-    private int _previousY;
-    private Vector3 _playerStartPosition;
+    [SerializeField] private Transform prefab; // Префаб для генерации ландшафта
+    [SerializeField] private int _xSize; // Размер ландшафта по оси X
+    [SerializeField] private int _ySize; // Размер ландшафта по оси Y
+    [SerializeField] private int _x; // Количество объектов по оси X
+    [SerializeField] private int _y; // Количество объектов по оси Y
+    [SerializeField] private Transform _playerTransform; // Ссылка на трансформ игрока
+
+    private bool _isLandscapeGenerated; // Флаг, указывающий, был ли ландшафт сгенерирован ранее
+    private int _previousX; // Предыдущее значение _x
+    private int _previousY; // Предыдущее значение _y
+    private Vector3 _playerStartPosition; // Начальная позиция игрока
 
     private void Start()
     {
-        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        _playerStartPosition = _playerTransform.position;
-        GenerateLandscape();
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Находим игрока по тегу "Player" и получаем его трансформ
+        _playerStartPosition = _playerTransform.position; // Сохраняем начальную позицию игрока
+        GenerateLandscape(); // Генерируем ландшафт
     }
 
     private void GenerateLandscape()
     {
         if (_isLandscapeGenerated)
         {
-            return;
+            return; // Если ландшафт уже сгенерирован, прекращаем выполнение метода
         }
 
         for (int x = 0; x < _x; x++)
         {
             for (int y = 0; y < _y; y++)
             {
+                // Создаем экземпляр префаба на нужных координатах
                 Instantiate(prefab, new Vector3(x * _xSize - _x * _xSize / 2, y * _ySize - _y * _ySize / 2, 0),
                     Quaternion.identity, transform);
             }
         }
-        _previousX = _x;
-        _previousY = _y;
-        _isLandscapeGenerated = true;
+
+        _previousX = _x; // Сохраняем текущее значение _x
+        _previousY = _y; // Сохраняем текущее значение _y
+        _isLandscapeGenerated = true; // Устанавливаем флаг, что ландшафт сгенерирован
     }
 
     private void Update()
     {
-        // Проверка, если игрок вышел за границу по оси X или Y
-        if (PlayerOutOfBoundaries())
+        if (PlayerOutOfBoundaries()) // Проверяем, вышел ли игрок за границы ландшафта
         {
-            ResetLandscape();
+            ResetLandscape(); // Если да, сбрасываем ландшафт
         }
     }
 
     private bool PlayerOutOfBoundaries()
     {
-        // Проверка условия, когда игрок вышел за границу
+        // Проверяем условие, когда игрок вышел за границу ландшафта
         Vector3 playerPosition = _playerTransform.position;
         return playerPosition.x < -_x * _xSize / 2 || playerPosition.x > _x * _xSize / 2 ||
                playerPosition.y < -_y * _ySize / 2 || playerPosition.y > _y * _ySize / 2;
@@ -59,7 +61,7 @@ public class LandscapeGenerator : MonoBehaviour
 
     private void ResetLandscape()
     {
-        // Уничтожаем все сгенерированные объекты пола
+        // Удаляем все сгенерированные объекты пола
         // foreach (Transform child in transform)
         // {
         //     Destroy(child.gameObject);
@@ -68,7 +70,7 @@ public class LandscapeGenerator : MonoBehaviour
         // Перемещаем игрока на начальную позицию
         _playerTransform.position = _playerStartPosition;
 
-        // Генерируем пол заново
+        // Генерируем ландшафт заново
         // GenerateLandscape();
     }
 }

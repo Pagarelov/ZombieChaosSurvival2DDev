@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public static EnemySpawner spawner;
+    public static EnemySpawner spawner; // Ссылка на себя для доступа из других скриптов
 
-    [SerializeField] private float spawnRate = 1f;
-    [SerializeField] private float spawnRadius = 5f;
-    [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private int maxActiveEnemies = 5;
-    [SerializeField] private float checkInterval = 1f;
-    [SerializeField] private float startDelay = 10f;
-    [SerializeField] private int waveSize = 3;
-    [SerializeField] private int waveIncreaseAmount = 2;
+    [SerializeField] private float spawnRate = 1f; // Частота появления врагов
+    [SerializeField] private float spawnRadius = 5f; // Радиус спавна врагов
+    [SerializeField] private GameObject[] enemyPrefabs; // Массив префабов врагов
+    [SerializeField] private int maxActiveEnemies = 5; // Максимальное количество активных врагов
+    [SerializeField] private float checkInterval = 1f; // Интервал проверки активных врагов
+    [SerializeField] private float startDelay = 10f; // Задержка перед началом спавна
+    [SerializeField] private int waveSize = 3; // Размер волны
+    [SerializeField] private int waveIncreaseAmount = 2; // Увеличение сложности между волнами
 
-    private List<GameObject> activeEnemies = new List<GameObject>();
+    private List<GameObject> activeEnemies = new List<GameObject>(); // Список активных врагов
 
-    private int currentWaveIndex = 0;
-    private int enemiesSpawned = 0;
+    private int currentWaveIndex = 0; // Индекс текущей волны
+    private int enemiesSpawned = 0; // Количество появившихся врагов
 
     private IEnumerator Start()
     {
@@ -29,38 +29,38 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private IEnumerator Spawner()
-{
-    WaitForSeconds wait = new WaitForSeconds(spawnRate);
-    int enemiesSpawnedInWave = 0;
-
-    while (true)
     {
-        yield return wait;
-        if (activeEnemies.Count < maxActiveEnemies)
-        {
-            GameObject enemyToSpawn = GetRandomEnemyPrefab();
-            Vector3 randomSpawnPosition = GetRandomSpawnPosition();
-            GameObject spawnedEnemy = Instantiate(enemyToSpawn, randomSpawnPosition, Quaternion.identity);
-            activeEnemies.Add(spawnedEnemy);
-            enemiesSpawned++;
+        WaitForSeconds wait = new WaitForSeconds(spawnRate);
+        int enemiesSpawnedInWave = 0;
 
-            enemiesSpawnedInWave++;
-            if (enemiesSpawnedInWave >= waveSize)
+        while (true)
+        {
+            yield return wait;
+            if (activeEnemies.Count < maxActiveEnemies)
             {
-                enemiesSpawnedInWave = 0;
-                IncreaseDifficulty();
+                GameObject enemyToSpawn = GetRandomEnemyPrefab();
+                Vector3 randomSpawnPosition = GetRandomSpawnPosition();
+                GameObject spawnedEnemy = Instantiate(enemyToSpawn, randomSpawnPosition, Quaternion.identity);
+                activeEnemies.Add(spawnedEnemy);
+                enemiesSpawned++;
+
+                enemiesSpawnedInWave++;
+                if (enemiesSpawnedInWave >= waveSize)
+                {
+                    enemiesSpawnedInWave = 0;
+                    IncreaseDifficulty();
+                }
             }
         }
     }
-}
 
-private Vector3 GetRandomSpawnPosition()
-{
-    Vector3 randomPoint = Random.insideUnitSphere * spawnRadius;
-    randomPoint += transform.position;
-    randomPoint.y = transform.position.y; // Assuming enemies should spawn at the same height as the spawner
-    return randomPoint;
-}
+    private Vector3 GetRandomSpawnPosition()
+    {
+        Vector3 randomPoint = Random.insideUnitSphere * spawnRadius;
+        randomPoint += transform.position;
+        randomPoint.y = transform.position.y; // Предполагается, что враги должны появляться на той же высоте, что и точка спавна
+        return randomPoint;
+    }
 
     private GameObject GetRandomEnemyPrefab()
     {
@@ -70,8 +70,8 @@ private Vector3 GetRandomSpawnPosition()
 
     private void IncreaseDifficulty()
     {
-        maxActiveEnemies += waveIncreaseAmount;
-        waveSize += waveIncreaseAmount;
+        maxActiveEnemies += waveIncreaseAmount; // Увеличиваем максимальное количество активных врагов
+        waveSize += waveIncreaseAmount; // Увеличиваем размер волны
         currentWaveIndex++;
     }
 
@@ -85,9 +85,9 @@ private Vector3 GetRandomSpawnPosition()
 
             for (int i = activeEnemies.Count - 1; i >= 0; i--)
             {
-                if (activeEnemies[i] == null)
+                if (activeEnemies[i] == null) // Если враг был уничтожен
                 {
-                    activeEnemies.RemoveAt(i);
+                    activeEnemies.RemoveAt(i); // Удаляем его из списка активных врагов
                 }
             }
         }
@@ -95,6 +95,6 @@ private Vector3 GetRandomSpawnPosition()
 
     private void Awake()
     {
-        spawner = this;
+        spawner = this; // Присваиваем ссылку на себя статической переменной для доступа из других скриптов
     }
 }

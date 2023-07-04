@@ -3706,7 +3706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4be72b8e49a41348a61ea02a1550f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetIntensity: 0
+  targetIntensity: 1
   transitionDuration: 4
 --- !u!1 &1989416256
 GameObject:

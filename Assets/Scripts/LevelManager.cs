@@ -3,23 +3,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager manager;
 
-    public GameObject deathScreen;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI scoreTextEnd;
-    public TextMeshProUGUI HighscoreText;
-    public TextMeshProUGUI SurvivalTimeText;
+    public GameObject deathScreen; // Ссылка на объект экрана смерти
+    public TextMeshProUGUI scoreText; // Ссылка на текстовое поле для отображения счета
+    public TextMeshProUGUI scoreTextEnd; // Ссылка на текстовое поле для отображения счета на экране смерти
+    public TextMeshProUGUI HighscoreText; // Ссылка на текстовое поле для отображения рекорда
+    public TextMeshProUGUI SurvivalTimeText; // Ссылка на текстовое поле для отображения времени выживания
 
-    public SaveData data;
+    public SaveData data; // Сохраненные данные
 
-    public float survivalTime;
-    private float currentTime;
+    public float survivalTime; // Время выживания
+    private float currentTime; // Текущее время
 
-    public int score;
+    public int score; // Счет
 
     private void Update()
     {
@@ -31,7 +30,7 @@ public class LevelManager : MonoBehaviour
     {
         manager = this;
         SaveSystem.Initialize();
-        
+
         data = new SaveData(0);
         currentTime = 0f;
     }

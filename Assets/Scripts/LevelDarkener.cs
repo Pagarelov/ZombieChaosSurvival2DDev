@@ -3,11 +3,11 @@ using UnityEngine.Rendering.Universal;
 
 public class LevelDarkener : MonoBehaviour
 {
-    public float targetIntensity = 0.5f;
-    public float transitionDuration = 5f;
+    public float targetIntensity = 0.5f; // Целевая интенсивность освещения
+    public float transitionDuration = 5f; // Длительность перехода между интенсивностями
 
-    private float startIntensity;
-    private Light2D globalLight;
+    private float startIntensity; // Исходная интенсивность освещения
+    private Light2D globalLight; // Ссылка на компонент Light2D для глобального освещения
 
     void Start()
     {
@@ -19,9 +19,9 @@ public class LevelDarkener : MonoBehaviour
 
             if (globalLight != null)
             {
-                startIntensity = globalLight.intensity;
+                startIntensity = globalLight.intensity; // Сохраняем исходную интенсивность
 
-                StartCoroutine(TransitionIntensity());
+                StartCoroutine(TransitionIntensity()); // Запускаем корутину для плавного перехода интенсивности
             }
             else
             {
@@ -42,13 +42,13 @@ public class LevelDarkener : MonoBehaviour
         {
             float currentIntensity = Mathf.Lerp(startIntensity, targetIntensity, elapsedTime / transitionDuration);
 
-            globalLight.intensity = currentIntensity;
+            globalLight.intensity = currentIntensity; // Изменяем интенсивность освещения
 
             elapsedTime += Time.deltaTime;
 
             yield return null;
         }
 
-        globalLight.intensity = targetIntensity;
+        globalLight.intensity = targetIntensity; // Устанавливаем целевую интенсивность
     }
 }

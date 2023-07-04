@@ -2,9 +2,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ExitButton : MonoBehaviour
+public class ExitButton : MonoBehaviour, IPointerClickHandler
 {
     private Button exitButton;
+
     private void Start()
     {
         exitButton = GetComponent<Button>();
@@ -25,9 +26,9 @@ public class ExitButton : MonoBehaviour
     private void ExitGame()
     {
     #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false; // Если игра запущена в редакторе Unity, останавливаем воспроизведение
     #else
-        Application.Quit();
+        Application.Quit(); // Если игра запущена вне редактора Unity, закрываем приложение
     #endif
     }
 }
